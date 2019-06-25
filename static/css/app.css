@@ -1,0 +1,60 @@
+.contents {
+	width: 100%;
+	height: 100vh;
+	overflow-y: scroll;
+	padding-bottom: 140upx;
+}
+
+.icon-lg {
+	font-size: 100upx;
+}
+
+.bg-main {
+	background-color: #409eff;
+	color: #ffffff;
+}
+
+.text-main {
+	color: #409eff;
+}
+
+.icon-box {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.icon-tabbar {
+	width: 25%;
+	margin-bottom: 20upx;
+	text-align: center;
+}
+
+.nav-topbar {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 90upx;
+	z-index: 9999;
+	font-size: 32upx;
+	text-align: center;
+	line-height: 90upx;
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav-topbar-icon {
+	padding: 0 30upx;
+}
+
+.nav-topbar-empty-icon {
+	width: 32upx;
+	padding: 0 30upx;
+}
+
+.hastitle {
+	padding-top: 90upx;
+}
+
+.cu-list.menu-avatar>.cu-item {
+	padding: 20upx 10upx;
+}
