@@ -27,7 +27,7 @@
 			</view>
 		</view>
 		<view class="footer">
-			<image src="../../static/shilu-login/logo.jpg"></image>
+			<image src="/static/shilu-login/logo.jpg"></image>
 		</view>
 	</view>
 </template>
@@ -39,7 +39,7 @@
 	} from 'vuex';
 	export default {
 		onLoad() {
-			tha = this;
+			that = this;
 		},
 		data() {
 			return {
@@ -81,7 +81,6 @@
 	.content {
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
 		height: 100vh;
 		overflow: hidden;
 		background: #FFFFFF;
@@ -93,12 +92,14 @@
 
 	.header image {
 		width: 100%;
+		height: 480upx;
 	}
 
 	.login-box {
 		width: 80%;
-		margin: 100upx auto;
-		padding: 50upx 0;
+		height: 40%;
+		margin: 5% auto 0;
+		padding: 100upx 0;
 		border-radius: 8upx;
 		box-shadow: 0upx 15upx 30upx 5upx rgba(0, 0, 0, 0.3);
 	}
@@ -144,7 +145,7 @@
 		text-align: center;
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: 100upx;
+		margin-top: 60upx;
 	}
 
 	.dlbutton-hover {
@@ -157,11 +158,11 @@
 		justify-content: center;
 		align-items: center;
 		font-size: 30upx;
-		margin-top: 80upx;
+		margin-top: 40upx;
 		color: #FFA800;
 		text-align: center;
 		height: 40upx;
-		line-height: 40upx;
+		line-height: 60upx;
 	}
 
 	.xieyi text {
@@ -171,8 +172,10 @@
 	}
 
 	.footer {
+		position: fixed;
+		bottom: 0;
 		width: 100%;
-		padding: 100upx 0;
+		padding: 8% 0;
 		text-align: center;
 	}
 
