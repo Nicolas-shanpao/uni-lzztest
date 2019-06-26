@@ -39,7 +39,7 @@
 	} from 'vuex';
 	export default {
 		onLoad() {
-			that = this;
+			let that = this;
 		},
 		data() {
 			return {

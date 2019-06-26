@@ -22,9 +22,9 @@
 		</view>
 		<!-- 常用应用图标 -->
 		<view class="padding-sm icon-box bg-gray">
-			<view class="icon-tabbar" @click="ToChange" data-path="safe">
-				<view class="icon-lg text-main cuIcon-safe"></view>
-				安全问题
+			<view class="icon-tabbar" @click="ToChange" data-path="scan">
+				<view class="icon-lg text-main cuIcon-scan"></view>
+				扫一扫
 			</view>
 			<view class="icon-tabbar" @click="ToChange" data-path="safe">
 				<view class="icon-lg text-main cuIcon-safe"></view>
@@ -158,6 +158,16 @@
 			DotStyle(e) {
 				this.dotStyle = e.detail.value
 			},
+			ToChange(e) {
+				console.log(e.currentTarget.dataset.path)
+				uni.scanCode({
+					success: function(res) {
+						console.log(res);
+						console.log('条码类型：' + res.scanType);
+						console.log('条码内容：' + res.result);
+					}
+				});
+			}
 		}
 	}
 </script>
