@@ -70,7 +70,7 @@
 				this.$store.dispatch('LoginByUsername', userInfo).then(() => {
 					console.log(1)
 				}).catch(err => {
-					this.$message.error(err);
+					console.log(err)
 				})
 			}
 		}

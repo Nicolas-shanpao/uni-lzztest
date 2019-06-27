@@ -26,9 +26,9 @@
 				<view class="icon-lg text-main cuIcon-scan"></view>
 				扫一扫
 			</view>
-			<view class="icon-tabbar" @click="ToChange" data-path="safe">
+			<view class="icon-tabbar" @click="test" data-path="safe">
 				<view class="icon-lg text-main cuIcon-safe"></view>
-				安全问题
+				测试
 			</view>
 			<view class="icon-tabbar" @click="ToChange" data-path="safe">
 				<view class="icon-lg text-main cuIcon-safe"></view>
@@ -167,6 +167,13 @@
 						console.log('条码内容：' + res.result);
 					}
 				});
+			},
+			test(){
+				this.$store.dispatch('test').then(() => {
+					console.log(1)
+				}).catch(err => {
+					this.$message.error(err);
+				})
 			}
 		}
 	}

@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import {
+	loginByUsername
+} from '@/vmeitime-http/index.js'
 
 Vue.use(Vuex)
 const token = uni.getStorageSync('token');
@@ -26,36 +29,32 @@ const store = new Vuex.Store({
 			commit
 		}, userInfo) {
 			return new Promise((resolve, reject) => {
-				uni.request({
-					url: 'http://baisha.checcbim.com/bimplatform/v1/api/tokens/login',
-					data: userInfo,
-					header: {
-						'content-type': 'application/x-www-form-urlencoded' //自定义请求头信息
-					},
-					method: 'POST',
-					dataType: 'json',
-					success: (res) => {
-						console.log(res)
-						if (res.data.code != 100) {
-							uni.showToast({
-								title: res.data.message,
-								icon: 'none'
-							});
-							reject(error)
-						} else {
-							let token = res.data.content.token
-							token = token.replace("\"", "").replace("\"", "");
-							commit('SET_TOKEN', token)
-							uni.setStorageSync('token', token);
-							uni.navigateTo({
-								url: '../index/index'
-							});
-							resolve()
-						}
+				loginByUsername({
+					username: 'admin',
+					password: 'bim201818'
+				}).then(response => {
+					if (res.data.code != 100) {
+						uni.showToast({
+							title: res.data.message,
+							icon: 'none'
+						});
+						reject(error)
+					} else {
+						let token = res.data.content.token
+						token = token.replace("\"", "").replace("\"", "");
+						commit('SET_TOKEN', token)
+						uni.setStorageSync('token', token);
+						uni.navigateTo({
+							url: '../index/index'
+						});
+						resolve(response)
 					}
-				});
+				}).catch(error => {
+					reject(error)
+				})
 			})
 		},
+
 		GetUserinfo({
 			state,
 			commit
