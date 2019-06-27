@@ -36,32 +36,30 @@
 				</view>
 			</view>
 		</view>
-		<view class="lzz-tabbar">
-			<view class="cu-bar tabbar bg-white">
-				<view class="action" @click="NavChange" data-cur="home" :class="PageCur=='home'?'text-main':'text-gray'">
-					<view class="cuIcon-homefill"></view>
-					<view>首页</view>
+		<view class="lzz-tabbar cu-bar tabbar bg-white">
+			<view class="action" @click="NavChange" data-cur="home" :class="PageCur=='home'?'text-main':'text-gray'">
+				<view class="cuIcon-homefill"></view>
+				<view>首页</view>
+			</view>
+			<view class="action" @click="NavChange" data-cur="message" :class="PageCur=='message'?'text-main':'text-gray'">
+				<view class="cuIcon-message">
+					<view class="cu-tag badge">99</view>
 				</view>
-				<view class="action" @click="NavChange" data-cur="message" :class="PageCur=='message'?'text-main':'text-gray'">
-					<view class="cuIcon-message">
-						<view class="cu-tag badge">99</view>
-					</view>
-					<view>消息</view>
+				<view>消息</view>
+			</view>
+			<view class="action text-gray add-action" @click="AddChange" data-cur="contacts">
+				<button class="cu-btn cuIcon-add bg-main shadow"></button>
+				新增
+			</view>
+			<view class="action" @click="NavChange" data-cur="contacts" :class="PageCur=='contacts'?'text-main':'text-gray'">
+				<view class="cuIcon-addressbook"></view>
+				<view>联系人</view>
+			</view>
+			<view class="action" @click="NavChange" data-cur="self" :class="PageCur=='self'?'text-main':'text-gray'">
+				<view class="cuIcon-my">
+					<view class="cu-tag badge"></view>
 				</view>
-				<view class="action text-gray add-action" @click="AddChange" data-cur="contacts">
-					<button class="cu-btn cuIcon-add bg-main shadow"></button>
-					新增
-				</view>
-				<view class="action" @click="NavChange" data-cur="contacts" :class="PageCur=='contacts'?'text-main':'text-gray'">
-					<view class="cuIcon-addressbook"></view>
-					<view>联系人</view>
-				</view>
-				<view class="action" @click="NavChange" data-cur="self" :class="PageCur=='self'?'text-main':'text-gray'">
-					<view class="cuIcon-my">
-						<view class="cu-tag badge"></view>
-					</view>
-					<view>我的</view>
-				</view>
+				<view>我的</view>
 			</view>
 		</view>
 	</view>
@@ -78,8 +76,15 @@
 				bottomModal: false
 			};
 		},
-		computed: mapState(['forcedLogin', 'token']),
-		onLoad() {
+		computed: {
+			...mapState({
+				forcedLogin: state => state.user.forcedLogin,
+				token: state => state.user.token,
+			}),
+		},
+		onLoad() {},
+		mounted() {
+			console.log(this.token)
 			if (!this.token) {
 				uni.showModal({
 					title: '未登录',

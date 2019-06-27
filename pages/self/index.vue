@@ -23,11 +23,11 @@
 				</navigator>
 			</view>
 			<view class="cu-item">
-					<button class="cu-btn content" open-type="contact">
-						<text class="cuIcon-btn text-olive"></text>
-						<text class="text-grey">清除缓存</text>
-					</button>
-				</view>
+				<button class="cu-btn content" open-type="contact">
+					<text class="cuIcon-btn text-olive"></text>
+					<text class="text-grey">清除缓存</text>
+				</button>
+			</view>
 		</view>
 
 	</view>
@@ -43,7 +43,11 @@
 
 			}
 		},
-		computed: mapState(['userinfo']),
+		computed: {
+			...mapState({
+				userinfo: state => state.user.userinfo,
+			}),
+		},
 	}
 </script>
 
