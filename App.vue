@@ -5,6 +5,7 @@
 			uni.getSystemInfo({
 				success: function(e) {
 					// #ifndef MP
+					console.log(e.statusBarHeight)
 					Vue.prototype.StatusBar = e.statusBarHeight;
 					if (e.platform == 'android') {
 						Vue.prototype.CustomBar = e.statusBarHeight + 50;
@@ -26,10 +27,8 @@
 			})
 		},
 		onShow: function() {
-			console.log('App Show');
 		},
 		onHide: function() {
-			console.log('App Hide');
 		}
 	};
 </script>
@@ -38,5 +37,6 @@
 	/*每个页面公共css */
 	@import "colorui/main.css";
 	@import "colorui/icon.css";
-	@import "static/css/app.css";  /* 你的项目css */
+	@import "static/css/app.css";
+	/* 你的项目css */
 </style>

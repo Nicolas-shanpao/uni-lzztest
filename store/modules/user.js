@@ -38,7 +38,7 @@ const user = {
 						reject(error)
 					} else {
 						let token = res.data.content.token
-						token = token.replace("\"", "").replace("\"", "");
+						console.log(token)
 						commit('SET_TOKEN', token)
 						uni.setStorageSync('token', token);
 						uni.navigateTo({

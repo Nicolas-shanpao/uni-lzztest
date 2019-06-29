@@ -15,11 +15,11 @@
 					</view>
 					<view class="icon-tabbar" @click="ToChange" data-path="safe">
 						<view class="icon-lg text-main cuIcon-safe"></view>
-						安全问题
+						质量问题
 					</view>
 					<view class="icon-tabbar" @click="ToChange" data-path="safe">
 						<view class="icon-lg text-main cuIcon-safe"></view>
-						安全问题
+						环保问题
 					</view>
 					<view class="icon-tabbar" @click="ToChange" data-path="safe">
 						<view class="icon-lg text-main cuIcon-safe"></view>
