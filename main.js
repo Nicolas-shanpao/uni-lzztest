@@ -18,6 +18,9 @@ Vue.component('self', self)
 
 import cuCustom from './colorui/components/cu-custom.vue'
 Vue.component('cu-custom', cuCustom)
+// default
+import myDefault from './layout/default.vue'
+Vue.component('my-default', myDefault)
 
 App.mpType = 'app'
 const app = new Vue({

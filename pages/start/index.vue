@@ -1,11 +1,92 @@
 <template>
-	<view class="start">
-		<text>这是启动页</text>
-	</view>
+	<my-default>
+		<view class="start">
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+			<view>122121212121212</view>
+		</view>
+	</my-default>
 </template>
 
 <script>
+	
 </script>
 
 <style>
+	.start{
+		height: 2000upx;
+	}
 </style>

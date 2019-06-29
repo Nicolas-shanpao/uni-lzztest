@@ -28,6 +28,12 @@
 					<text class="text-grey">清除缓存</text>
 				</button>
 			</view>
+			<view class="cu-item">
+				<navigator class="content" hover-class="none" url="/pages/start/index" open-type="redirect">
+					<text class="cuIcon-discoverfill text-orange"></text>
+					<text class="text-grey">去模板</text>
+				</navigator>
+			</view>
 		</view>
 
 	</view>
