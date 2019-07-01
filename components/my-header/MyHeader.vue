@@ -14,15 +14,19 @@
 		data() {
 			return {};
 		},
+		props: {
+			url: {
+				type: String,
+				default: '/pages/index/index'
+			},
+		},
 		name: 'my-header',
 		computed: {},
-		props: {},
 		methods: {
 			BackPage() {
-				uni.navigateBack({
-					delta: 1,
-					animationType: 'pop-out',
-					animationDuration: 200
+				let that = this
+				uni.reLaunch({
+					url: that.url
 				});
 			}
 		}

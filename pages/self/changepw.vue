@@ -41,9 +41,21 @@
 				reppsd: '',
 			}
 		},
+		onBackPress(options) {
+			console.log(options)
+			if (options.from === 'navigateBack') {
+				return false;
+			}
+			this.back();
+			return true;
+		},
 		methods: {
-
-		}
+			back() {
+				uni.navigateTo({
+					url: '../index/index'
+				});
+			}
+		},
 	}
 </script>
 

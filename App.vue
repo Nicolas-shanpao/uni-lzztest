@@ -5,7 +5,7 @@
 			uni.getSystemInfo({
 				success: function(e) {
 					// #ifndef MP
-					console.log(e.statusBarHeight)
+					console.log(e.windowHeight)
 					Vue.prototype.StatusBar = e.statusBarHeight;
 					if (e.platform == 'android') {
 						Vue.prototype.CustomBar = e.statusBarHeight + 50;
