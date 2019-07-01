@@ -1484,7 +1484,7 @@ button.cuIcon.lg {
 	display: flex;
 	position: relative;
 	align-items: center;
-	min-height: 120upx;
+	min-height: 100upx;
 	justify-content: space-between;
 }
 
@@ -1680,7 +1680,11 @@ button.cuIcon.lg {
 }
 
 .cu-tabbar-height {
+<<<<<<< HEAD
 	min-height: 120upx;
+=======
+	min-height: 100upx;
+>>>>>>> 5d2e2694864a443cae215d351917d681db32fed9
 	height: calc(100upx + env(safe-area-inset-bottom) / 2);
 }
 

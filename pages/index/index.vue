@@ -15,11 +15,11 @@
 					</view>
 					<view class="icon-tabbar" @click="ToChange" data-path="safe">
 						<view class="icon-lg text-main cuIcon-safe"></view>
-						安全问题
+						质量问题
 					</view>
 					<view class="icon-tabbar" @click="ToChange" data-path="safe">
 						<view class="icon-lg text-main cuIcon-safe"></view>
-						安全问题
+						环保问题
 					</view>
 					<view class="icon-tabbar" @click="ToChange" data-path="safe">
 						<view class="icon-lg text-main cuIcon-safe"></view>
@@ -131,7 +131,28 @@
 			ToChange(e) {
 				console.log(e.currentTarget.dataset.path)
 			}
-		}
+		},
+
+		onBackPress() {
+			if (this.bottomModal) {
+				this.bottomModal = false;
+				return true;
+			} else {
+				uni.showModal({
+					title: '提示',
+					content: '是否退出uni-app？',
+					success: function(res) {
+						if (res.confirm) {
+							// 退出当前应用，改方法只在App中生效
+							plus.runtime.quit();
+						} else if (res.cancel) {
+							console.log('用户点击取消');
+						}
+					}
+				});
+				return true;
+			}
+		},
 	};
 </script>
 

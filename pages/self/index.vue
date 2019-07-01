@@ -23,7 +23,7 @@
 				</navigator>
 			</view>
 			<view class="cu-item">
-				<button class="cu-btn content" open-type="contact">
+				<button class="cu-btn content" open-type="contact" @click="clear()">
 					<text class="cuIcon-btn text-olive"></text>
 					<text class="text-grey">清除缓存</text>
 				</button>
@@ -54,6 +54,15 @@
 				userinfo: state => state.user.userinfo,
 			}),
 		},
+		methods:{
+			clear(){
+				console.log(1)
+				uni.removeStorageSync('token');
+				uni.reLaunch({
+					url: '../login-related/login'
+				});
+			}
+		}
 	}
 </script>
 
