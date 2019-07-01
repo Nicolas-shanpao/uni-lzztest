@@ -29,7 +29,7 @@
 				</button>
 			</view>
 			<view class="cu-item">
-				<navigator class="content" hover-class="none" url="/pages/top-navigator" open-type="redirect">
+				<navigator class="content" hover-class="none" url="/pages/start/index" open-type="redirect">
 					<text class="cuIcon-discoverfill text-orange"></text>
 					<text class="text-grey">去模版</text>
 				</navigator>
