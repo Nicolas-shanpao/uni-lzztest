@@ -8,6 +8,11 @@
 			}
 		},
 		{
+			"path": "pages/top-navigator",
+			"style": {
+			}
+		},
+		{
 			"path": "pages/login-related/login",
 			"style": {
 				"titleNView": false

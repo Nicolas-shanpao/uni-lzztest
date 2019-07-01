@@ -9,9 +9,6 @@
 			<text>修改密码</text>
 			<text class="nav-topbar-empty-icon text-white"> </text>
 		</view>
-
-
-
 		<form>
 			<view class="cu-form-group">
 				<view class="title text-bold">原密码</view>
@@ -28,6 +25,12 @@
 		</form>
 		<view class="padding-sm">
 			<button class="cu-btn block bg-main margin-tb-sm lg" type="">确定</button>
+		</view>
+		<view class="cu-item">
+			<navigator class="content" hover-class="none" url="/pages/top-navigator" open-type="redirect">
+				<text class="cuIcon-discoverfill text-orange"></text>
+				<text class="text-grey">修改密码</text>
+			</navigator>
 		</view>
 	</view>
 </template>
