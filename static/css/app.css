@@ -1,6 +1,5 @@
 .contents {
 	width: 100%;
-	height: 100vh;
 	overflow-y: scroll;
 	padding-bottom: 140upx;
 }
@@ -10,7 +9,7 @@
 }
 
 .bg-main {
-	background-color: #409eff;
+	background-color: #3aa7ff;
 	color: #ffffff;
 }
 

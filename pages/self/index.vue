@@ -1,5 +1,7 @@
 <template>
 	<view class="self">
+		<cu-custom bgColor="bg-main">
+		</cu-custom>
 		<view class="self-top">
 			<image src="/static/self/self-bg.png" class="self-top"></image>
 			<view class="self-message padding-left-xl">
@@ -11,13 +13,13 @@
 
 		<view class="cu-list menu sm-border">
 			<view class="cu-item">
-				<navigator class="content" hover-class="none" url="../list/list" open-type="redirect">
+				<navigator class="content" hover-class="none" url="../list/list" open-type="navigate">
 					<text class="cuIcon-discoverfill text-orange"></text>
 					<text class="text-grey">当前版本</text>
 				</navigator>
 			</view>
 			<view class="cu-item">
-				<navigator class="content" hover-class="none" url="/pages/self/changepw" open-type="redirect">
+				<navigator class="content" hover-class="none" url="/pages/self/changepw" open-type="navigate">
 					<text class="cuIcon-discoverfill text-orange"></text>
 					<text class="text-grey">修改密码</text>
 				</navigator>
@@ -29,13 +31,18 @@
 				</button>
 			</view>
 			<view class="cu-item">
-				<navigator class="content" hover-class="none" url="/pages/start/index" open-type="redirect">
+				<navigator class="content" hover-class="none" url="/pages/start/index" open-type="navigate">
 					<text class="cuIcon-discoverfill text-orange"></text>
 					<text class="text-grey">去模版</text>
 				</navigator>
 			</view>
+			<view class="cu-item">
+				<navigator class="content" hover-class="none" url="/pages/contacts/index" open-type="navigate">
+					<text class="cuIcon-discoverfill text-orange"></text>
+					<text class="text-grey">联系人</text>
+				</navigator>
+			</view>
 		</view>
-
 	</view>
 </template>
 

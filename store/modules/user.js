@@ -21,15 +21,12 @@ const user = {
 		}
 	},
 	actions: {
-		// 新增关联 树与gis绑定
+		// 登录
 		LoginByUsername({
 			commit
 		}, userInfo) {
 			return new Promise((resolve, reject) => {
-				loginByUsername({
-					username: 'admin',
-					password: 'bim201818'
-				}).then(res => {
+				loginByUsername(userInfo).then(res => {
 					if (res.data.code != 100) {
 						uni.showToast({
 							title: res.data.message,
@@ -41,7 +38,7 @@ const user = {
 						console.log(token)
 						commit('SET_TOKEN', token)
 						uni.setStorageSync('token', token);
-						uni.navigateTo({
+						uni.redirectTo({
 							url: '../index/index'
 						});
 						resolve(response)
@@ -51,7 +48,7 @@ const user = {
 				})
 			})
 		},
-
+		// 拉取个人信息
 		GetUserinfo({
 			state,
 			commit
@@ -74,7 +71,7 @@ const user = {
 								icon: 'none'
 							});
 							uni.reLaunch({
-								url: '../../index/index'
+								url: '../../pages/login-related/login'
 							});
 						} else {
 							commit('SET_USERINFO', res.data)

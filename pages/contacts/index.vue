@@ -1,31 +1,18 @@
 <template>
-	<view class="self">
-		<view class="nav-topbar bg-main">
-			<text class="nav-topbar-empty-icon text-white"></text>
-			<text>联系人</text>
-			<text class="nav-topbar-empty-icon text-white"></text>
-		</view>
-		<!-- 搜索框 -->
-		<view class="cu-bar bg-white search fixed" style="top:90upx">
+	<view class="contacts">
+		<cu-custom bgColor="bg-main">
+			<block slot="content">联系人</block>
+		</cu-custom>
+		<view class="cu-bar bg-white search fixed" :style="[{top:CustomBar + 'px'}]">
 			<view class="search-form round">
 				<text class="cuIcon-search"></text>
-				<input type="text" placeholder="输入姓名" confirm-type="search"></input>
+				<input type="text" placeholder="输入搜索的关键词" confirm-type="search" @focus='searchContacts'></input>
 			</view>
 			<view class="action">
-				<button class="cu-btn bg-main shadow-blur">搜索</button>
+				<button class="cu-btn bg-gradual-green shadow-blur round">搜索</button>
 			</view>
 		</view>
-		<!-- tab栏 -->
-		<scroll-view scroll-x class="bg-white nav text-center fixed" style="top:190upx">
-			<view class="cu-item" :class="0==TabCur?'text-main cur':''" @tap="tabSelect" data-id="0">
-				<text class="cuIcon-friend"></text> 姓名排列
-			</view>
-			<view class="cu-item" :class="1==TabCur?'text-main cur':''" @tap="tabSelect" data-id="1">
-				<text class="cuIcon-cascades"></text> 部门排列
-			</view>
-		</scroll-view>
-		<!-- 列表 -->
-		<scroll-view scroll-y class="indexes" :scroll-into-view="'indexes-'+ listCurID" style="height:'calc(100vh - 280upx)"
+		<scroll-view scroll-y class="indexes" :scroll-into-view="'indexes-'+ listCurID" :style="[{height:'calc(100vh - '+ CustomBar + 'px - 50px)'}]"
 		 :scroll-with-animation="true" :enable-back-to-top="true">
 			<block v-for="(item,index) in list" :key="index">
 				<view :class="'indexItem-' + item.name" :id="'indexes-' + item.name" :data-index="item.name">
@@ -44,7 +31,7 @@
 				</view>
 			</block>
 		</scroll-view>
-		<view class="indexBar" :style="[{height:'calc(100vh - 190upx)'}]">
+		<view class="indexBar" :style="[{height:'calc(100vh - ' + CustomBar + 'px - 50px)'}]">
 			<view class="indexBar-box" @touchstart="tStart" @touchend="tEnd" @touchmove.stop="tMove">
 				<view class="indexBar-item" v-for="(item,index) in list" :key="index" :id="index" @touchstart="getCur" @touchend="setCur">
 					{{item.name}}</view>
@@ -61,8 +48,8 @@
 	export default {
 		data() {
 			return {
-				TabCur: 0,
 				StatusBar: this.StatusBar,
+				CustomBar: this.CustomBar,
 				hidden: true,
 				listCurID: '',
 				list: [],
@@ -77,7 +64,10 @@
 			}
 			this.list = list;
 			this.listCur = list[0];
+		},
+		onReady() {
 			let that = this;
+			console.log(uni.createSelectorQuery().select('.indexBar-box').id)
 			uni.createSelectorQuery().select('.indexBar-box').boundingClientRect(function(res) {
 				that.boxTop = res.top
 			}).exec();
@@ -86,9 +76,6 @@
 			}).exec()
 		},
 		methods: {
-			tabSelect(e) {
-				this.TabCur = e.currentTarget.dataset.id;
-			},
 			//获取文字信息
 			getCur(e) {
 				this.hidden = false;
@@ -132,13 +119,23 @@
 						return false
 					}
 				}
+			},
+			searchContacts() {
+				console.log(1)
+				uni.showToast({
+					title: ''+this.windowHeight,
+					icon: 'none'
+				});
 			}
 		}
-
 	}
 </script>
 
 <style>
+	.contacts {
+		padding-top: 100upx;
+	}
+
 	.indexes {
 		position: relative;
 	}
@@ -205,9 +202,5 @@
 		line-height: 100upx;
 		text-align: center;
 		font-size: 48upx;
-	}
-
-	.self {
-		padding-top: 280upx;
 	}
 </style>

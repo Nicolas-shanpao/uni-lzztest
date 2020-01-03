@@ -1,10 +1,9 @@
 <template>
-	<view class="hastitle">
-		<view class="nav-topbar bg-main">
-			<text class="nav-topbar-empty-icon text-white"> </text>
-			<text>消息</text>
-			<text class="nav-topbar-empty-icon text-white"> </text>
-		</view>
+	<view>
+		<cu-custom bgColor="bg-main">
+			<block slot="backText">返回</block>
+			<block slot="content">消息</block>
+		</cu-custom>
 		<view class="cu-list menu-avatar">
 			<view class="cu-item">
 				<view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Taric.png);">

@@ -1,10 +1,18 @@
 <template>
-	<view class="contents">
+	<view class="contents" :style="[{height:windowHeight + 'px'}]">
+		<!--
+		* 广告组件
+		* timedown 倒计时时间
+		* imageUrl 背景图
+		* url 跳转链接
+		*  -->
+		<!-- #ifndef MP -->
+		<mix-advert ref="mixAdvert" :timedown="8" imageUrl="/static/advert.jpg" :url="advertNavUrl"></mix-advert>
+		<!-- #endif -->
 		<home v-if="PageCur=='home'"></home>
 		<message v-if="PageCur=='message'"></message>
 		<contacts v-if="PageCur=='contacts'"></contacts>
 		<self v-if="PageCur=='self'"></self>
-
 		<!-- 底部窗口 -->
 		<view class="cu-modal bottom-modal" :class="bottomModal?'show':''" @tap="hideModal">
 			<view class="cu-dialog">
@@ -69,11 +77,15 @@
 	import {
 		mapState
 	} from 'vuex'
+	import mixAdvert from '@/components/mix-advert/vue/mix-advert';
+	import mixLoadMore from '@/components/mix-load-more/mix-load-more';
 	export default {
 		data() {
 			return {
 				PageCur: 'home',
-				bottomModal: false
+				bottomModal: false,
+				windowHeight: this.windowHeight,
+				advertNavUrl: ''
 			};
 		},
 		computed: {
@@ -82,9 +94,12 @@
 				token: state => state.user.token,
 			}),
 		},
-		onLoad() {},
+		onReady() {
+			// #ifndef MP
+			this.$refs.mixAdvert.initAdvert();
+			// #endif
+		},
 		mounted() {
-			console.log(this.token)
 			if (!this.token) {
 				uni.showModal({
 					title: '未登录',
@@ -111,8 +126,8 @@
 					}
 				});
 			} else {
-				this.$store.dispatch('GetUserinfo').then(() => {
-					console.log(1)
+				this.$store.dispatch('GetUserinfo').then((res) => {
+					console.log(res)
 				}).catch(err => {
 					this.$message.error(err);
 				})
@@ -132,7 +147,10 @@
 				console.log(e.currentTarget.dataset.path)
 			}
 		},
-
+		components: {
+			mixLoadMore,
+			mixAdvert
+		},
 		onBackPress() {
 			if (this.bottomModal) {
 				this.bottomModal = false;
@@ -159,7 +177,7 @@
 <style>
 	.lzz-tabbar {
 		width: 100%;
-		position: fixed;
+		position: absolute;
 		bottom: 0;
 		box-shadow: 0 -5upx 15upx #999;
 	}

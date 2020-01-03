@@ -12,7 +12,7 @@
 </template>
  
 <script>
-	import advert from '@/assets/js/mix-advert.js';
+	import advert from '@/components/mix-advert/js/mix-advert.js';
 	export default {
 		data() {
 			return {
@@ -127,7 +127,7 @@
 		border-radius: 100px;
 	}
 	.mix-advert-timer{
-		color: red;
+		color: #fff;
 		font-size: 26upx;
 		line-height: 1;
 	}
